@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 var db;
 
 // Connect to the database before starting the application server.
-mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://mongodb:mongodb@localhost:27017/contactdb", function (err, client) {
+mongodb.MongoClient.connect(process.env.MONGODB_URI || "mongodb://mongodb:mongodb@mongodb:27017/contactdb", function (err, client) {
   if (err) {
     console.log(err);
     process.exit(1);
