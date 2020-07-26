@@ -5,7 +5,7 @@ def gitSourceRef=env.GIT_SOURCE_REF
 
 pipeline {
   agent {
-    label 'nodejs'
+    label 'node12'
   }
   stages {
 
