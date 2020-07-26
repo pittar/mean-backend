@@ -22,7 +22,7 @@ pipeline {
         git url: "${gitSourceUrl}", branch: "${gitSourceRef}"
       }
     }
-    stage('Build JAR') {
+    stage('npm run build') {
       steps {
         echo "Build the app."
         sh "npm install -g @angular/cli"
