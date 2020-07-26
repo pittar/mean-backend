@@ -5,7 +5,7 @@ def gitSourceRef=env.GIT_SOURCE_REF
 
 pipeline {
   agent {
-    label 'nodejs'
+    label 'node12'
   }
   stages {
 
@@ -22,7 +22,7 @@ pipeline {
         git url: "${gitSourceUrl}", branch: "${gitSourceRef}"
       }
     }
-    stage('Build JAR') {
+    stage('npm run build') {
       steps {
         echo "Build the app."
         sh "npm update"
