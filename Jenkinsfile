@@ -25,6 +25,7 @@ pipeline {
     stage('Build JAR') {
       steps {
         echo "Build the app."
+        sh "npm update"
         sh "npm install -g @angular/cli"
         sh "npm run build"
       }
