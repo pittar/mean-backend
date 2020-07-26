@@ -25,7 +25,7 @@ pipeline {
     stage('Build JAR') {
       steps {
         echo "Build the app."
-        sh "npm build --prod"
+        sh "ng build --prod"
       }
     }               
     stage('Echo output') {
