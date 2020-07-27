@@ -21,25 +21,14 @@ pipeline {
         echo "Checkout source."
         git url: "${gitSourceUrl}", branch: "${gitSourceRef}"
       }
-    }             
-    stage('Echo output') {
-      steps {
-        script {
-          echo "Did the build work?"
-          echo "List current dir."
-          sh "ls -la"
-          echo "List src dir."
-          sh "ls -la src"
-        }
-      }
     }
     stage('Build Image') {
       steps {
         script {
           echo "Build container image."
           openshift.withCluster() {
-            openshift.withProject('mean') {
-              sh "oc start-build mean-backend-s2i-build --from-dir=. --follow"
+            openshift.withProject('cicd') {
+              sh "oc start-build backend-s2i-build --from-dir=. --follow"
             }
           }
         }
