@@ -14,7 +14,7 @@ data:
       <label>node12</label>
       <serviceAccount>jenkins</serviceAccount>
       <nodeSelector></nodeSelector>
-      <volumes/>
+      <volumes />
       <containers>
         <org.csanchez.jenkins.plugins.kubernetes.ContainerTemplate>
           <name>jnlp</name>
