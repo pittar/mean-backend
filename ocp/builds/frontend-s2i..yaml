@@ -1,0 +1,31 @@
+apiVersion: build.openshift.io/v1
+kind: BuildConfig
+metadata:
+  labels:
+    app: mean-frontend
+    name: mean-frontend-s2i-build
+  name: mean-frontend-s2i-build
+spec:
+  failedBuildsHistoryLimit: 5
+  nodeSelector: {}
+  output:
+    to:
+      kind: ImageStreamTag
+      name: 'mean-frontend:latest'
+  postCommit: {}
+  resources: {}
+  runPolicy: Serial
+  source:
+    binary: {}
+    type: Binary
+  strategy:
+    sourceStrategy:
+      from:
+        kind: ImageStreamTag
+        name: nginx:1.14
+        namespace: openshift
+    type: Source
+  successfulBuildsHistoryLimit: 5
+  triggers: []
+status:
+  lastVersion: 0

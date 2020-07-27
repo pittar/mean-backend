@@ -1,0 +1,13 @@
+apiVersion: image.openshift.io/v1
+kind: ImageStream
+metadata:
+  labels:
+    app: mean-app
+    name: mean-frontend
+    app.kubernetes.io/name: mean-app
+    app.openshift.io/runtime: nginx
+    app.openshift.io/runtime-version: "1.14"
+  name: mean-frontend
+spec:
+  lookupPolicy:
+    local: false
