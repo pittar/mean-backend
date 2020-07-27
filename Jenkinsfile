@@ -47,7 +47,7 @@ pipeline {
           echo "Build container image."
           openshift.withCluster() {
             openshift.withProject('mean') {
-              sh "oc start-build mean-frontend-s2i-build --from-dir=/dist --follow"
+              sh "oc start-build mean-frontend-s2i-build --from-dir=dist --follow"
             }
           }
         }
