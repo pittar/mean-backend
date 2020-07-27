@@ -21,23 +21,15 @@ pipeline {
         echo "Checkout source."
         git url: "${gitSourceUrl}", branch: "${gitSourceRef}"
       }
-    }
-    stage('npm run build') {
-      steps {
-        echo "Build the app."
-        sh "npm update"
-        sh "npm install -g @angular/cli"
-        sh "npm run build"
-      }
-    }               
+    }             
     stage('Echo output') {
       steps {
         script {
           echo "Did the build work?"
           echo "List current dir."
           sh "ls -la"
-          echo "List dist dir."
-          sh "ls -la dist"
+          echo "List src dir."
+          sh "ls -la src"
         }
       }
     }
@@ -47,7 +39,7 @@ pipeline {
           echo "Build container image."
           openshift.withCluster() {
             openshift.withProject('mean') {
-              sh "oc start-build mean-frontend-s2i-build --from-dir=dist/mean-contactlist-angular2 --follow"
+              // sh "oc start-build mean-frontend-s2i-build --from-dir=dist/mean-contactlist-angular2 --follow"
             }
           }
         }
