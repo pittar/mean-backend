@@ -1,4 +1,5 @@
 var express = require("express");
+var cors = require('cors')
 var bodyParser = require("body-parser");
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
@@ -6,6 +7,7 @@ var ObjectID = mongodb.ObjectID;
 var CONTACTS_COLLECTION = "contacts";
 
 var app = express();
+app.use(cors())
 app.use(bodyParser.json());
 
 // Create link to Angular build directory

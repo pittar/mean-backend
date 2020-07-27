@@ -22,7 +22,7 @@ spec:
     sourceStrategy:
       from:
         kind: ImageStreamTag
-        name: nginx:1.14
+        name: nodejs:12
         namespace: openshift
     type: Source
   successfulBuildsHistoryLimit: 5
